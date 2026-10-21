@@ -1,0 +1,46 @@
+# macOS
+.DS_Store
+.AppleDouble
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Python (future utilities)
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Private client data
+private/
+client-data/
+secrets/
+
+# Temporary and generated files
+tmp/
+temp/
+*.log
+*.bak
+*.tmp
+
+# Local databases and vector indexes
+*.sqlite
+*.sqlite3
+chroma_db/
+chroma_storage/

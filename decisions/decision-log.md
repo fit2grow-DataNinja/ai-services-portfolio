@@ -1,0 +1,21 @@
+# Decision log
+
+Status: Approved decisions and pending questions | 2026-10-21
+
+|ID|Status|Decision|
+|---|---|---|
+|SC-001|Approved|EU SME/mid-market focus; adjacent analytics/marketing/reporting/documentation domains|
+|SC-002|Approved|Shared AI skills and structured workflows both allowed; low-code/Python/SQL/APIs|
+|SC-003|Approved|Prefer EU hosting and EU-operable technologies|
+|AR-000|Approved|Architecture baseline v0.1 frozen for research; not production verified|
+|AC-001|Approved|FastAPI service API|
+|D-002|Approved|One modular FastAPI application initially|
+|D-003|Approved|Open WebUI default; alternatives require justification|
+|CP-001|Approved|Business outcome first; client-operated and provider-managed options|
+|CP-002|Approved|Client-operated solution with bounded recurring maintenance/advisory preferred where suitable|
+|CP-003|Approved|Avoid unnecessary app development when shared skill suffices|
+|RS-001|Approved|Platform-first evaluation and explicit architecture change notices|
+
+## Pending
+
+Source-by-source current verification; service prioritization and difficulty calibration; customer interviews and pricing; skill sharing/licensing requirements by client platform; implementation tests; final documentation taxonomy if future expansion requires changes.

@@ -19,3 +19,7 @@ Test tagged, untagged, missing-tag, conflicting-tag and incorrectly tagged input
 
 ## Promotion gate
 No 'validated commercial service' label without evidence of working implementation, credible business outcome, security/deployment fit, repeatable onboarding, and at least preliminary buyer evidence.
+
+## Shared-core review at solution readiness
+
+When a new solution reaches a verified working milestone, remind the owner to revisit the proposed `ai-services-core` approach. Compare the new solution with existing services for genuinely reusable functions, integration adapters, tests and documentation. Apply the single-source-of-truth rules in `governance/documentation-standards.md`; record the reuse/extraction/defer decision before marking the solution's documentation milestone complete. This is a review checkpoint, not authorization to create a new repository or modify the architecture.

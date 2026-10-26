@@ -1,6 +1,10 @@
 # Validation plan
 
-Status: Proposed; no tests executed
+Status: Proposed portfolio validation plan; S02 synthetic-data MVP integration tested, broader gates pending
+
+## Verified S02 technical milestone (2026-10-26)
+
+Synthetic CRM exports: 202 contacts, 121 deals, 92 medium missing-deal-owner findings. Standalone FastAPI ZIP output and Open WebUI Workspace Tool audit integration were observed. Direct OpenAPI multipart upload failed HTTP 422. This is not SEC-001, customer, production or commercial validation. See [S02 registry](../services/S02.md) and its service-specific validation record.
 
 ## Business-model validation
 For each candidate compare: (A) competent employee with shared AI skill, (B) internally built integrated solution, (C) our external offering. Compare accuracy, repeatability, time to deploy, time to operate, access/integration, auditability, total cost, and maintenance.
@@ -19,3 +23,7 @@ Test tagged, untagged, missing-tag, conflicting-tag and incorrectly tagged input
 
 ## Promotion gate
 No 'validated commercial service' label without evidence of working implementation, credible business outcome, security/deployment fit, repeatable onboarding, and at least preliminary buyer evidence.
+
+## Shared-core review at solution readiness
+
+When a new solution reaches a verified working milestone, remind the owner to revisit the proposed `ai-services-core` approach. Compare the new solution with existing services for genuinely reusable functions, integration adapters, tests and documentation. Apply the single-source-of-truth rules in `governance/documentation-standards.md`; record the reuse/extraction/defer decision before marking the solution's documentation milestone complete. This is a review checkpoint, not authorization to create a new repository or modify the architecture.

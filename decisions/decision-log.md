@@ -17,5 +17,9 @@ Status: Approved decisions and pending questions | 2026-10-21
 | RS-001 | Approved | Platform-first evaluation and explicit architecture change notices |
 | SEC-001 | Recorded planned requirement; implementation pending | Tag client-sensitive data and require manual approval for applicable tagged-data operations; enforcement must fail closed. Scope of approval gate remains to be decided. |
 
+## Repository organization and S02 milestone (2026-10-26)
+
+The portfolio is the authority for shared strategy, architecture, governance and catalog; service repositories own their own implementation and technical documentation. Revisit potential `ai-services-core` extraction at every verified solution milestone, but do not introduce it without demonstrated reuse and applicable change approval. S02's synthetic-data FastAPI/Open WebUI Workspace Tool integration is verified; SEC-001 and production readiness are not. See [S02 registry](../services/S02.md).
+
 ## Pending
 Source-by-source current verification; service prioritization and difficulty calibration; customer interviews and pricing; skill sharing/licensing requirements by client platform; implementation tests; SEC-001 approval scope, tag taxonomy, approver roles and audit/retention design; final documentation taxonomy if future expansion requires changes.

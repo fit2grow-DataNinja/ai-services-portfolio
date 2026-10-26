@@ -28,8 +28,12 @@ Technology: shared client-platform skill OR technical application (when necessar
 Operations: client-operated with maintenance/advisory OR provider-managed with recurring deliverables.
 The same business methodology can support multiple delivery forms; portability is a goal, not yet demonstrated.
 
+## S02-specific validation update (2026-10-26)
+
+The S02 synthetic-data pilot verified a local FastAPI audit endpoint and Open WebUI Workspace Tool attachment-to-multipart adapter. This resolves one narrow integration question, **not** platform-wide compatibility or production readiness. The hosted-model chat flow has **not** implemented SEC-001 outbound approval controls; only synthetic data is approved for this test. Technical details belong to the [S02 repository](https://github.com/bb-DataNinja/s02-crm-data-quality-auditor/blob/main/docs/architecture.md) after its documentation branch is merged.
+
 ## Known implementation gaps
-Open WebUI/FastAPI compatibility, citations, Compose portability, cross-platform behavior, authentication/authorization, tenant isolation, logging, monitoring, backup, secrets management, licensing, and EU deployment need validation appropriate to the customer context.
+Broader Open WebUI/FastAPI compatibility, citations, Compose portability, cross-platform behavior, authentication/authorization, tenant isolation, logging, monitoring, backup, secrets management, licensing, and EU deployment need validation appropriate to the customer context.
 
 ## Security
 Fail closed on absent/invalid sensitivity metadata; prohibit unapproved sensitive content in outbound embedding/generation calls; treat retrieved content as untrusted; avoid leaks through logs/errors/citations. Multi-user and company deployment requires separate security review.

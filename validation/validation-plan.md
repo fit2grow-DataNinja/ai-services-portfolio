@@ -1,6 +1,10 @@
 # Validation plan
 
-Status: Proposed; no tests executed
+Status: Proposed portfolio validation plan; S02 synthetic-data MVP integration tested, broader gates pending
+
+## Verified S02 technical milestone (2026-10-26)
+
+Synthetic CRM exports: 202 contacts, 121 deals, 92 medium missing-deal-owner findings. Standalone FastAPI ZIP output and Open WebUI Workspace Tool audit integration were observed. Direct OpenAPI multipart upload failed HTTP 422. This is not SEC-001, customer, production or commercial validation. See [S02 registry](../services/S02.md) and its service-specific validation record.
 
 ## Business-model validation
 For each candidate compare: (A) competent employee with shared AI skill, (B) internally built integrated solution, (C) our external offering. Compare accuracy, repeatability, time to deploy, time to operate, access/integration, auditability, total cost, and maintenance.

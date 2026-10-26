@@ -5,7 +5,7 @@ Status: Initial hypotheses — unverified market fit and difficulty
 |ID|Candidate|Domain|Next validation|
 |---|---|---|---|
 |S01|KPI & performance reporting|Reporting|Recurrence, source access, internal-skill comparison|
-|S02|Data quality & freshness auditor|Data reliability|Deterministic checks, recurring need|
+|S02|Data quality & freshness auditor|Data reliability|[Synthetic-data MVP integration verified](../services/S02.md); validate full checks, security and recurring demand|
 |S03|Marketing campaign performance reviewer|Marketing|Input availability, actionable outputs|
 |S04|Tracking & measurement audit assistant|Analytics|Evidence capture, scope boundaries|
 |S05|SQL & business logic documentation|Documentation|Dialect coverage, accuracy tests|

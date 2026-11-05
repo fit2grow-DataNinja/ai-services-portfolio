@@ -15,15 +15,20 @@ Sell a defined business outcome, not a technology. Each service may be delivered
 - `research/`: methodology, evidence, scoring, candidate register.
 - `services/`: existing reference solutions and future service specifications.
 - `commercial/`: delivery options, maintenance, pricing hypotheses.
-- `validation/`: planned tests and future results.
+- `validation/`: planned tests, regression-testing standards and results.
 - `decisions/`: approved decisions and unresolved questions.
-- `templates/`: reusable Markdown document templates.
+- `templates/`: reusable Markdown document templates, including a service test-layout guide.
 
 ## Document status convention
 `Approved` = explicitly agreed; `Proposed` = recommendation awaiting decision; `Hypothesis` = unvalidated commercial or technical assessment; `Planned` = not implemented; `Verified` = supported by actual evidence/test.
 
+## Quality and completion standards
+- [Portfolio definition of done](governance/definition-of-done.md) — completion gates for service and portfolio milestones.
+- [Regression-testing standard](validation/regression-testing.md) — synthetic fixtures, test coverage, and evidence requirements.
+- [Service test layout template](templates/service-test-layout.template.md) — recommended structure for future service repositories.
+
 ## Service repositories
-- [S02 — CRM Data Quality & Freshness Auditor](services/S02.md) — [technical repository](https://github.com/bb-DataNinja/s02-crm-data-quality-auditor); synthetic-data MVP integration verified, source transfer pending.
+- [S02 — CRM Data Quality & Freshness Auditor](services/S02.md) — [technical repository](https://github.com/bb-DataNinja/s02-crm-data-quality-auditor); synthetic-data MVP integration verified; service-specific development tracked in its repository.
 
 ## Current priorities
 1. Research recurring business problems and service opportunities.

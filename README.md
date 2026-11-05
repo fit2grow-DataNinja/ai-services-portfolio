@@ -10,6 +10,7 @@ Sell a defined business outcome, not a technology. Each service may be delivered
 ## Repository map
 - `governance/`: project scope, working principles, documentation conventions.
 - `strategy/`: positioning, target segments, competition, business areas.
+  - [Future improvements register](strategy/future-improvements.md) — eight proposed, deferred design elements to evaluate when a service need arises.
 - `architecture/`: approved platform baseline and change control.
 - `research/`: methodology, evidence, scoring, candidate register.
 - `services/`: existing reference solutions and future service specifications.

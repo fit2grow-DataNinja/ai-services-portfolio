@@ -37,3 +37,11 @@ The [S02 Variant 1 case study](case-studies/S02-crm-data-quality-auditor.md) and
 
 ## S02 Variant 1 acceptance — 2026-11-06
 All seven synthetic-data portfolio MVP criteria are now recorded as met. The report lists evaluated checks and coverage limitations; the developer reported `Ran 11 tests ... OK` after the fix to rule-catalogue constants. The [case study](case-studies/S02-crm-data-quality-auditor.md) reflects acceptance. This does not imply SEC-001, independent CI, customer-data clearance or commercial readiness. Next: plan Variant 2 with shared synthetic evaluation inputs.
+
+## S02 Variant 2 planning decision — 2026-11-06
+
+- Variant 2 will have its own repository: proposed `bb-DataNinja/s02-crm-data-quality-auditor-skill`. The AI Services Portfolio remains the single home for the S02 case study and eventual comparison.
+- Selected Approach B: ChatGPT Skill orchestrates deterministic Python validation and AI explanation. First verify target Skill environment supports the necessary script and file operations; do not assume access, sharing, or centralized enforcement.
+- Mirror the Variant 1 documentation structure in the skill repository, adapted for installation/invocation and skill-specific trust boundaries.
+- Add **multi-user reusability and consistency** to the comparison: availability to multiple users, installation/distribution, shared version/update governance, same deterministic findings for identical synthetic inputs and rule versions, and variability in AI explanations. Distinguish technical sharing from centrally enforced versions; record what is verified versus unknown.
+- Next small action: create the new repository, then establish documentation skeleton and a minimal synthetic script-execution proof of concept before porting rules. No production-data use; SEC-001 remains unimplemented.

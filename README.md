@@ -14,6 +14,7 @@ Sell a defined business outcome, not a technology. Each service may be delivered
 - `architecture/`: approved platform baseline and change control.
 - `research/`: methodology, evidence, scoring, candidate register.
 - `services/`: existing reference solutions and future service specifications.
+- `case-studies/`: business-facing project narratives linking to implementation repositories and evidence.
 - `commercial/`: delivery options, maintenance, pricing hypotheses.
 - `validation/`: planned tests, regression-testing standards and results.
 - `decisions/`: approved decisions and unresolved questions.
@@ -29,6 +30,9 @@ Sell a defined business outcome, not a technology. Each service may be delivered
 
 ## Service repositories
 - [S02 — CRM Data Quality & Freshness Auditor](services/S02.md) — [technical repository](https://github.com/bb-DataNinja/s02-crm-data-quality-auditor); synthetic-data MVP integration verified; service-specific development tracked in its repository.
+
+## Portfolio case studies
+- [S02 — CRM Data Quality Auditor (draft)](case-studies/S02-crm-data-quality-auditor.md) — business problem, two-variant approach, demonstrated results, deliberate MVP exclusions and links to technical evidence.
 
 ## Current priorities
 1. Research recurring business problems and service opportunities.

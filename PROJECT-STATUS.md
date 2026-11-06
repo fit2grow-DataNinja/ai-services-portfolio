@@ -34,3 +34,6 @@ At the end of each meaningful work session, update the active service's `PROJECT
 
 ## S02 Variant 1 documentation milestone — 2026-11-06
 The [S02 Variant 1 case study](case-studies/S02-crm-data-quality-auditor.md) and technical documentation are finalized for portfolio review. Nine local tests were user-reported as passing. The report does not yet enumerate all successfully evaluated checks, so one technical MVP acceptance criterion remains open. Synthetic data only; SEC-001 and production readiness are not complete. Variant 2 comparison is planned.
+
+## S02 Variant 1 acceptance — 2026-11-06
+All seven synthetic-data portfolio MVP criteria are now recorded as met. The report lists evaluated checks and coverage limitations; the developer reported `Ran 11 tests ... OK` after the fix to rule-catalogue constants. The [case study](case-studies/S02-crm-data-quality-auditor.md) reflects acceptance. This does not imply SEC-001, independent CI, customer-data clearance or commercial readiness. Next: plan Variant 2 with shared synthetic evaluation inputs.

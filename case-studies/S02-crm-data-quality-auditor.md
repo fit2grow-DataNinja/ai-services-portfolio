@@ -25,15 +25,14 @@ Synthetic contacts.csv + deals.csv [+ associations.csv]
                     |
      ZIP: summary.json, issues.csv, report.md
                     |
-       Workspace Tool opens ZIP and extracts
-             summary.json + report.md
+        Workspace Tool reads report output
                     |
          AI-assisted explanation in chat
 ```
 
-The FastAPI application, served locally by Uvicorn, executes rules in `s02/audit.py`. It returns a ZIP with a machine-readable summary, individual findings and a human-readable report. The Workspace Tool—not the language model—opens the ZIP, reads `summary.json` and `report.md`, and returns their contents as text to the conversational workflow. The individual `issues.csv` rows are **not** passed separately by this adapter.
+The service returns structured audit artifacts; the Open WebUI Workspace Tool passes the relevant report content to the model for explanation.
 
-The standalone API works independently of Open WebUI. A direct OpenAPI chat-upload integration was attempted but failed to forward required multipart attachments (HTTP 422); the Workspace Tool is the verified conversational path.
+The standalone API works independently of Open WebUI. The Workspace Tool is the validated conversational integration; the direct OpenAPI upload path was not successful.
 
 ## Deterministic audit scope
 

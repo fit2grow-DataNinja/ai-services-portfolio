@@ -1,6 +1,6 @@
 # Project status — AI Services Portfolio
 
-**Last updated:** 2026-11-05  
+**Last updated:** 2026-11-06  
 **Status:** Active development; S02 is the current service.  
 **Purpose:** Quick handoff for future work sessions. This file owns portfolio-level progress only. Service implementation details live in the respective service repositories.
 
@@ -10,6 +10,7 @@
 - **Portfolio next action:** Apply the new portfolio definition-of-done and regression-testing standards to service milestones. S02's next implementation step remains authoritative in its own status file.
 
 ## Completed
+- Established a portfolio-level [S02 case study draft](case-studies/S02-crm-data-quality-auditor.md), linked to S02's implementation evidence and deferred commercial readiness backlog; final publication awaits MVP verification and Variant 2 comparison.
 - Established a [portfolio definition of done](governance/definition-of-done.md), [regression-testing standard](validation/regression-testing.md), and [service test-layout template](templates/service-test-layout.template.md) for future services.
 - Approved architecture v0.1 documented: modular Python 3.11.5/FastAPI, Open WebUI, Podman development, deterministic audit rules and hosted AI explanation.
 - Established portfolio and S02 repositories and reciprocal documentation links.

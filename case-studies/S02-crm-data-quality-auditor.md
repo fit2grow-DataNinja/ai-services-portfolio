@@ -1,7 +1,7 @@
 # S02 — CRM Data Quality Auditor
 ## Variant 1 case study: deterministic checks, AI-assisted explanation
 
-**Status:** Synthetic-data portfolio MVP; final acceptance review pending · **November 2026**  
+**Status:** Variant 1 documentation finalized; one technical reporting acceptance criterion remains open · **November 2026**  
 **Evidence:** [Implementation](https://github.com/bb-DataNinja/s02-crm-data-quality-auditor) · [Architecture](https://github.com/bb-DataNinja/s02-crm-data-quality-auditor/blob/main/docs/architecture.md) · [Tests and validation](https://github.com/bb-DataNinja/s02-crm-data-quality-auditor/blob/main/docs/validation.md)
 
 > **Scope:** Self-directed demonstration using synthetic CRM exports. No customer deployment, validated commercial impact or production-readiness claim.
@@ -82,6 +82,6 @@ These are recorded decisions, not forgotten requirements. See [SDR-001: MVP scop
 
 This project demonstrates translation of a business problem into explicit rules, separation of deterministic computation from AI explanation, API/tool integration, regression testing, and disciplined MVP scoping. It also surfaces an important AI-governance question: **how much of the desired model behavior is enforceable, rather than merely instructed?**
 
-Variant 1's remaining acceptance step is final report-coverage review and evidence sign-off. A planned **Variant 2, using a ChatGPT Skill-based approach**, will be tested on shared synthetic inputs and compared on finding accuracy, repeatability, explanation faithfulness, AI controllability, setup/maintenance effort and data-exposure boundaries. Its execution capabilities and results are **not yet established**.
+Variant 1 documentation and evidence review are complete. The report discloses checks that could not be evaluated, but does not enumerate every successfully evaluated rule; this remains one open technical acceptance criterion. No additional tests were run for documentation sign-off. A planned **Variant 2, using a ChatGPT Skill-based approach**, will be tested on shared synthetic inputs and compared on finding accuracy, repeatability, explanation faithfulness, AI controllability, setup/maintenance effort and data-exposure boundaries. Its execution capabilities and results are **not yet established**.
 
 **Technical detail:** [Source](https://github.com/bb-DataNinja/s02-crm-data-quality-auditor/tree/main/s02) · [Tests](https://github.com/bb-DataNinja/s02-crm-data-quality-auditor/tree/main/tests) · [Security](https://github.com/bb-DataNinja/s02-crm-data-quality-auditor/blob/main/docs/security.md)

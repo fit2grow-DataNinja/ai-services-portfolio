@@ -1,125 +1,88 @@
 # S02 — CRM Data Quality Auditor
-## Variant 1 case study: deterministic auditing with AI-assisted explanation
+## Variant 1 case study: deterministic checks, AI-assisted explanation
 
-**Project type:** Synthetic-data portfolio MVP · **Status:** Implemented and regression-tested; final portfolio acceptance review pending · **Date:** November 2026
+**Status:** Synthetic-data portfolio MVP; final acceptance review pending · **November 2026**  
+**Evidence:** [Implementation](https://github.com/bb-DataNinja/s02-crm-data-quality-auditor) · [Architecture](https://github.com/bb-DataNinja/s02-crm-data-quality-auditor/blob/main/docs/architecture.md) · [Tests and validation](https://github.com/bb-DataNinja/s02-crm-data-quality-auditor/blob/main/docs/validation.md)
 
-**Technical evidence:** [Implementation repository](https://github.com/bb-DataNinja/s02-crm-data-quality-auditor) · [Architecture](https://github.com/bb-DataNinja/s02-crm-data-quality-auditor/blob/main/docs/architecture.md) · [Validation record](https://github.com/bb-DataNinja/s02-crm-data-quality-auditor/blob/main/docs/validation.md) · [Source code](https://github.com/bb-DataNinja/s02-crm-data-quality-auditor/tree/main/s02)
+> **Scope:** Self-directed demonstration using synthetic CRM exports. No customer deployment, validated commercial impact or production-readiness claim.
 
-> **Evidence boundary:** This is a self-directed demonstration with synthetic CRM data, not a client engagement. It does not establish production readiness, business impact, customer adoption, or commercial demand.
+## Business challenge
 
-## The business challenge
+Sales and operations teams depend on trustworthy CRM data. Missing deal owners, duplicate contact information, invalid values and inconsistent relationships can undermine pipeline reporting and create manual review work. The objective was to identify **specific, reviewable data-quality findings** and explain them in business language—without letting an AI model invent the underlying audit results.
 
-CRM data quality affects how confidently sales and operations teams can interpret their pipelines. In exported contact and deal records, missing owners, duplicate identifiers, inconsistent values and broken relationship references can make reports less reliable and increase manual review work.
+## Solution and workflow
 
-The challenge for this project was to produce a **repeatable, explainable audit** of common CRM export issues without requiring an AI model to judge the underlying data independently. The solution should identify concrete records for review, make its coverage limits visible and leave source records unchanged.
-
-## The solution
-
-Variant 1 is a small, locally operated Python application with a conversational explanation layer:
-
-1. A user provides **contacts.csv** and **deals.csv**, optionally adding **associations.csv**.
-2. A **FastAPI** endpoint receives the CSV files and runs deterministic Python validation rules.
-3. The service returns a ZIP containing **summary.json**, **issues.csv** and **report.md**.
-4. An **Open WebUI Workspace Tool** forwards chat attachments to the API, reads the structured summary and Markdown report, and makes those findings available for AI-assisted explanation.
-
-**Responsibility boundary:** Python determines the findings and their severity. The AI model may summarize and explain those findings, but it is not the source of audit decisions. The tool is read-only with respect to CRM source records.
-
-### Architecture at a glance
+Variant 1 combines a small **Python/FastAPI** auditing service with an **Open WebUI Workspace Tool** and an AI explanation layer.
 
 ```text
-Synthetic CRM CSV exports
-  contacts.csv + deals.csv [+ associations.csv]
+Synthetic contacts.csv + deals.csv [+ associations.csv]
                     |
-        Open WebUI Workspace Tool
+          Open WebUI Workspace Tool
                     |
-           FastAPI POST /audit
+             FastAPI POST /audit
                     |
-        Deterministic Python rules
+         Deterministic Python rules
                     |
-        summary.json | issues.csv | report.md
+     ZIP: summary.json, issues.csv, report.md
                     |
-          ZIP response to adapter
+       Workspace Tool opens ZIP and extracts
+             summary.json + report.md
                     |
-     AI-assisted explanation in Open WebUI
+         AI-assisted explanation in chat
 ```
 
-The standalone FastAPI upload path is also usable without the conversational interface. A direct OpenAPI-based chat upload was attempted but failed to forward required multipart attachments (HTTP 422); the **Workspace Tool adapter** is the verified conversational integration path. See the [implementation architecture](https://github.com/bb-DataNinja/s02-crm-data-quality-auditor/blob/main/docs/architecture.md).
+The FastAPI application, served locally by Uvicorn, executes rules in `s02/audit.py`. It returns a ZIP with a machine-readable summary, individual findings and a human-readable report. The Workspace Tool—not the language model—opens the ZIP, reads `summary.json` and `report.md`, and returns their contents as text to the conversational workflow. The individual `issues.csv` rows are **not** passed separately by this adapter.
 
-## What the audit checks
+The standalone API works independently of Open WebUI. A direct OpenAPI chat-upload integration was attempted but failed to forward required multipart attachments (HTTP 422); the Workspace Tool is the verified conversational path.
 
-The current rule set includes:
+## Deterministic audit scope
 
-- Missing or duplicate contact and deal record IDs.
-- Missing, malformed or repeated contact email addresses.
-- Missing or repeated deal names; unknown deal stages.
-- Invalid, negative or non-finite deal amounts; missing amounts at the Negotiation stage.
-- Missing deal owners from Qualified onward, under an explicitly **provisional pilot policy**.
-- Association rows that reference contact or deal IDs absent from the supplied exports.
+The implemented rules examine missing or duplicate record identifiers; missing, invalid or repeated contact emails; missing or repeated deal names; unknown deal stages; invalid deal amounts; missing amounts at Negotiation; missing owners from Qualified onward; and references to unknown contacts or deals in optional association files.
 
-Findings identify the rule, severity, affected object and record, field, observed value and explanation. The rules are a demonstration catalogue, **not universal CRM policy**; in particular, a missing owner may be legitimate for a specific business.
+Findings identify the affected record, rule, severity and reason. The missing-owner requirement is a **provisional business-policy hypothesis**, not a universal CRM rule. The service does not edit source records.
 
-## Demonstrated results
+**Coverage is explicit:** A partial association file can validate references present in it but cannot prove missing relationships. Freshness and original close-date reconciliation are not evaluated without extract timestamps and original source values.
 
-<details>
-<summary>Evidence from two synthetic scenarios</summary>
+## AI responsibilities, guardrails and trust boundaries
 
-| Scenario | Observed result | What it demonstrates |
-| --- | --- | --- |
-| Larger CRM sample | **202 contacts**, **121 deals**, **92 medium-severity findings**, all missing deal owners | Deterministic rules can flag a concrete review queue |
-| Live three-file Open WebUI test | **1 contact**, **1 deal**, **1 known association**, **0 findings** | User-reported successful optional-association workflow and zero-finding output |
+The architectural distinction is central to this use case: **Python decides what the audit found; AI explains the supplied results.** However, not every intended AI boundary is technically enforced.
 
-</details>
+| Boundary | Mechanism and actual status |
+| --- | --- |
+| **Audit decisions and severity** | **Software-enforced separation:** deterministic Python rules compute findings; the model does not execute or modify those rules through this workflow. |
+| **Information supplied to AI** | **Adapter-controlled:** the tool returns the structured summary and report text, not the ZIP itself or separate `issues.csv` rows. This is a defined tool-response boundary, not a comprehensive data-leakage control. |
+| **Read-only behavior** | **Tool capability limit:** this workflow audits uploaded exports and exposes no CRM write operation. |
+| **Faithful explanation** | **Behavioral expectation:** the model should summarize supplied findings, avoid inventing new violations and preserve coverage caveats. Instructions alone cannot guarantee this. |
+| **Independent explanation verification** | **Not implemented:** no automated checker validates each model statement against the deterministic output. |
+| **Sensitive-data handling** | **Not implemented:** the planned SEC-001 outbound-data sensitivity and manual-approval gate is absent. **Synthetic data only.** |
 
-The 92 findings are **not 92 confirmed business errors**. They are records flagged under the pilot owner-assignment rule, requiring policy review. The live Open WebUI result is user-reported; it was not independently captured as a network-level multipart trace.
+This distinction matters: **repeatable rule output does not automatically guarantee a faithful natural-language explanation**. It also creates a concrete comparison criterion for the future skill-based Variant 2: which audit and AI boundaries are enforced by executable code, and which depend on model instructions?
 
-The output separates **audit findings** from **coverage information**. For example, a partial association reference file is useful for validating references present in that file, but cannot prove that deals absent from the file lack contacts in the CRM.
+## Demonstration and verification
 
-## Verification and engineering evidence
+Two synthetic scenarios provide evidence of the implemented workflow:
 
-On **6 November 2026**, the developer reported **9 automated tests passing** with:
+| Scenario | Recorded outcome |
+| --- | --- |
+| Larger CRM export | **202 contacts**, **121 deals**, **92 medium-severity missing-owner findings** |
+| Live Open WebUI three-file demonstration | **1 contact**, **1 deal**, **1 known association**, **0 findings** |
 
-```bash
-python -m unittest discover -s tests -v
-```
+The 92 findings are records flagged for review under a pilot rule, **not 92 confirmed business errors**. The three-file conversational result was user-reported; no independent network-level trace was captured.
 
-The regression suite covers representative deterministic rule behavior, schema rejection, FastAPI uploads and responses, invalid association references, two-file and three-file adapter forwarding, missing-deal-owner detection and rejection of a missing required attachment before any HTTP upload.
-
-Standalone API and Open WebUI integration milestones were also demonstrated using synthetic data. Test execution and integration observations are documented in the [validation record](https://github.com/bb-DataNinja/s02-crm-data-quality-auditor/blob/main/docs/validation.md). The recorded local results are evidence of those runs, **not a claim of independently reproduced deployment or CI validation**.
+On **6 November 2026**, the developer reported **9 automated tests passing** with `python -m unittest discover -s tests -v`. The suite covers representative rules, invalid schemas and associations, API behavior, two-/three-file adapter forwarding, and a missing required attachment rejected before HTTP upload. See the [validation record](https://github.com/bb-DataNinja/s02-crm-data-quality-auditor/blob/main/docs/validation.md). This is local regression evidence, not independent fresh-environment or CI verification.
 
 ## MVP scope, deliberate exclusions and commercial readiness
 
-An important design decision was to build **a credible portfolio MVP rather than a superficially production-ready product**.
+The decision was to build a **credible, verifiable portfolio MVP**, not to disguise a prototype as a commercial service. Production security and privacy controls, authentication and isolation, deployment hardening, monitoring, full source-data completeness, customer-specific rule acceptance and commercial validation were considered but deliberately deferred.
 
-The scope includes deterministic rules, explicit file handling, useful audit artifacts, conversational explanation, regression tests and honest documentation. It intentionally does **not** include all controls required to handle real customer CRM exports.
+In particular, **SEC-001 remains unimplemented**: no real customer CRM data may be used. Comprehensive freshness and close-date checks also require data not present in the current exports.
 
-| Deliberately excluded or limited | Why it matters |
-| --- | --- |
-| **SEC-001 sensitivity classification and manual approval** | Not implemented; therefore **synthetic data only** and no real customer-data processing |
-| Full association completeness | A partial reference export cannot support missing-association conclusions |
-| Freshness and original close-date reconciliation | Reliable checks require extract timestamps, original values and documented transformation rules |
-| Production deployment, monitoring, CI and operational hardening | Local development success does not establish portable or reliable production operation |
-| Customer-specific business rules and commercial validation | Real policies, demand, pricing and acceptance remain unverified |
+These are recorded decisions, not forgotten requirements. See [SDR-001: MVP scope](https://github.com/bb-DataNinja/s02-crm-data-quality-auditor/blob/main/docs/decisions.md), the [commercial-readiness backlog](https://github.com/bb-DataNinja/s02-crm-data-quality-auditor/blob/main/docs/commercial-readiness-backlog.md), and the [definition of done](https://github.com/bb-DataNinja/s02-crm-data-quality-auditor/blob/main/docs/definition-of-done.md).
 
-These items are **documented, not forgotten**. The [Scope Decision Record (SDR-001)](https://github.com/bb-DataNinja/s02-crm-data-quality-auditor/blob/main/docs/decisions.md) explains the MVP boundary; the [commercial-readiness backlog](https://github.com/bb-DataNinja/s02-crm-data-quality-auditor/blob/main/docs/commercial-readiness-backlog.md) records deferred requirements and future evidence expectations. The [definition of done](https://github.com/bb-DataNinja/s02-crm-data-quality-auditor/blob/main/docs/definition-of-done.md) distinguishes portfolio acceptance from production clearance.
+## What this demonstrates—and what comes next
 
-## What this project demonstrates
+This project demonstrates translation of a business problem into explicit rules, separation of deterministic computation from AI explanation, API/tool integration, regression testing, and disciplined MVP scoping. It also surfaces an important AI-governance question: **how much of the desired model behavior is enforceable, rather than merely instructed?**
 
-**Business analysis:** Translate a broad CRM data-quality concern into a concrete set of reviewable rules, while marking policy assumptions.
+Variant 1's remaining acceptance step is final report-coverage review and evidence sign-off. A planned **Variant 2, using a ChatGPT Skill-based approach**, will be tested on shared synthetic inputs and compared on finding accuracy, repeatability, explanation faithfulness, AI controllability, setup/maintenance effort and data-exposure boundaries. Its execution capabilities and results are **not yet established**.
 
-**Solution design:** Separate reliable, testable audit computation from AI-assisted communication.
-
-**Integration:** Connect a file-upload API to a conversational tool and distinguish working from unsuccessful integration paths.
-
-**Verification:** Use synthetic fixtures and automated regression tests to protect core behavior and failure handling.
-
-**Delivery judgment:** Define a realistic MVP, document what is excluded, and preserve a traceable path to commercial readiness.
-
-## Next steps
-
-The remaining **Variant 1 portfolio acceptance work** is a final review of report wording and coverage disclosures, followed by evidence and case-study sign-off. This case study is therefore a substantive **Variant 1 draft**, not a declaration that every acceptance checkbox has been closed.
-
-A separate **Variant 2** will explore the same synthetic CRM audit scenario as a ChatGPT Skill-based workflow. Only after both variants have been exercised against shared inputs will the portfolio compare accuracy, repeatability, explainability, setup and maintenance effort, and security boundaries.
-
----
-
-**Explore the evidence:** [S02 repository](https://github.com/bb-DataNinja/s02-crm-data-quality-auditor) · [Tests](https://github.com/bb-DataNinja/s02-crm-data-quality-auditor/tree/main/tests) · [Validation](https://github.com/bb-DataNinja/s02-crm-data-quality-auditor/blob/main/docs/validation.md) · [Security boundaries](https://github.com/bb-DataNinja/s02-crm-data-quality-auditor/blob/main/docs/security.md)
+**Technical detail:** [Source](https://github.com/bb-DataNinja/s02-crm-data-quality-auditor/tree/main/s02) · [Tests](https://github.com/bb-DataNinja/s02-crm-data-quality-auditor/tree/main/tests) · [Security](https://github.com/bb-DataNinja/s02-crm-data-quality-auditor/blob/main/docs/security.md)

@@ -31,3 +31,6 @@
 
 ## Handoff routine
 At the end of each meaningful work session, update the active service's `PROJECT-STATUS.md` with **last completed**, **current working step**, **next tiny action**, and **blockers**. Update this portfolio file only when portfolio milestones, priorities or the active service change. In a new chat, read both status files first.
+
+## S02 Variant 1 documentation milestone — 2026-11-06
+The [S02 Variant 1 case study](case-studies/S02-crm-data-quality-auditor.md) and technical documentation are finalized for portfolio review. Nine local tests were user-reported as passing. The report does not yet enumerate all successfully evaluated checks, so one technical MVP acceptance criterion remains open. Synthetic data only; SEC-001 and production readiness are not complete. Variant 2 comparison is planned.

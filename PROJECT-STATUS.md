@@ -5,8 +5,8 @@
 **Purpose:** Quick handoff for future work sessions. This file owns portfolio-level progress only. Service implementation details live in the respective service repositories.
 
 ## Current focus
-- **Active service:** [S02 — CRM Data Quality & Freshness Auditor](https://github.com/bb-DataNinja/s02-crm-data-quality-auditor).
-- **Authoritative working step:** [S02 PROJECT-STATUS.md](https://github.com/bb-DataNinja/s02-crm-data-quality-auditor/blob/main/PROJECT-STATUS.md).
+- **Active service:** [S02 — CRM Data Quality & Freshness Auditor](https://github.com/fit2grow-DataNinja/s02-crm-data-quality-auditor).
+- **Authoritative working step:** [S02 PROJECT-STATUS.md](https://github.com/fit2grow-DataNinja/s02-crm-data-quality-auditor/blob/main/PROJECT-STATUS.md).
 - **Portfolio next action:** Apply the new portfolio definition-of-done and regression-testing standards to service milestones. S02's next implementation step remains authoritative in its own status file.
 
 ## Completed
@@ -45,3 +45,10 @@ All seven synthetic-data portfolio MVP criteria are now recorded as met. The rep
 - Mirror the Variant 1 documentation structure in the skill repository, adapted for installation/invocation and skill-specific trust boundaries.
 - Add **multi-user reusability and consistency** to the comparison: availability to multiple users, installation/distribution, shared version/update governance, same deterministic findings for identical synthetic inputs and rule versions, and variability in AI explanations. Distinguish technical sharing from centrally enforced versions; record what is verified versus unknown.
 - Next small action: create the new repository, then establish documentation skeleton and a minimal synthetic script-execution proof of concept before porting rules. No production-data use; SEC-001 remains unimplemented.
+
+
+## S02 Variant 2 implementation and portfolio use-case update — 2026-11-08
+
+The [Variant 2 Skill repository](https://github.com/fit2grow-DataNinja/s02-crm-data-quality-auditor-skill) now contains the deterministic Python Skill implementation, three explicitly synthetic CSV templates, regression tests, and updated technical/usage documentation. The owner confirms successful execution of its 17-test regression suite from a fresh checkout; raw run logs and environment metadata were not provided. Earlier synthetic 202/121/92 audit parity and header-only execution were reported. Multi-user installation/version consistency remains untested. GitHub CI and SEC-001 are deferred; no real customer data or production claim.
+
+The [single S02 case study](case-studies/S02-crm-data-quality-auditor.md) now contains Variant 1 and Variant 2 evidence plus comparison limits. Portfolio-level comparison and final reviewer acceptance are still open; technical working steps belong to each service repository. Next portfolio work: review the cross-variant case study after completing GitHub-based ChatGPT Skill user documentation.

@@ -86,6 +86,34 @@ Variant 1 meets all seven documented portfolio MVP acceptance criteria. Its 11-t
 
 **Variant 2 is now implemented as a ChatGPT Skill with deterministic Python execution.** Its GitHub repository contains the Skill instructions, Python audit/CLI, three synthetic CSV header templates and a 17-case Python regression suite. Previously reported Skill exercises include the shared 202 contacts / 121 deals / 92 medium missing-owner findings scenario, matching issue-level audit results in two ChatGPT conversations, and successful header-only three-file execution (zero findings). The owner confirmed successful execution of the 17-test suite from a fresh repository checkout on 8 November 2026; raw checkout logs, Python version and tested commit SHA were not supplied. These are user-reported evidence, not independently captured runs.
 
+## Business comparison — advantages, disadvantages and when to choose each variant
+
+The two approaches address the same business problem: identify reviewable CRM data-quality issues and explain them without allowing AI to invent the audit findings. The business decision is therefore less about which variant detects more issues in the shared synthetic scenario, and more about **how the organization wants to operate the workflow**.
+
+| Business consideration | Variant 1 — dedicated audit service | Variant 2 — ChatGPT Skill |
+| --- | --- | --- |
+| **Primary advantage** | Clearer path to a centrally operated, standardized audit service and other software integrations | Lightweight, conversational, on-demand audit experience without operating a separate audit API |
+| **Primary disadvantage** | Additional service infrastructure, integration and maintenance responsibility | Depends on ChatGPT Skill availability and execution environment; central rollout/update governance is not yet established |
+| **Getting started** | Requires setup of the service and chat adapter | Potentially simpler for people already using ChatGPT; setup effort has not been measured |
+| **Working with colleagues** | Shared-service architecture is a plausible fit, but organization-wide operation has not been proven | **Successfully tested by a second ChatGPT user with matching deterministic audit results, as confirmed by the project owner**; centrally managed version updates remain untested |
+| **Standardization and oversight** | Better architectural fit for a centrally managed business process, subject to future security/operations work | Suitable for distributed, user-initiated checks; consistent Skill release governance needs separate validation |
+| **Future integrations** | More direct architectural path to APIs, scheduled jobs and other systems | Good fit for ChatGPT-first workflows; automation and external integrations would require additional design |
+| **Costs and maintenance** | Hosting, integration and operational maintenance are likely cost drivers | ChatGPT access, Skill upkeep and platform/runtime constraints are likely cost drivers; no total-cost comparison has been measured |
+| **Business outcome demonstrated** | Synthetic deterministic audit with conversational explanation | Same synthetic audit scenario with reported issue-level parity and user-confirmed cross-user reuse |
+
+### Advantages, trade-offs and practical fit
+
+**Variant 1 advantages:** more flexibility for integration and central operational control. **Trade-offs:** greater infrastructure, configuration and ongoing support burden. It is the more natural candidate for a company planning a centrally managed, repeatable audit service, but this is an architectural assessment—not a validated production deployment.
+
+**Variant 2 advantages:** a simpler user-facing path for people who already work in ChatGPT; the Skill has also been used successfully by a second ChatGPT user with matching audit results. **Trade-offs:** reliance on ChatGPT execution capabilities and unresolved centralized release/version governance. It is the more natural candidate for occasional or team-led, on-demand reviews, subject to organizational access and security requirements.
+
+**Illustrative business scenarios:**
+- A **solo sales-operations analyst** checking occasional synthetic exports would likely favor Variant 2's conversational workflow.
+- A **sales team** needing centrally scheduled, governed audits may favor Variant 1's service architecture; neither MVP currently implements that full operational process.
+- A **company integrating CRM data-quality checks into other business systems** would likely favor Variant 1's API-oriented design, while weighing integration and maintenance costs.
+
+**Decision guidance:** Prefer Variant 2 for lightweight ChatGPT-first, user-initiated auditing; prefer Variant 1 when central service operation and future system integration dominate. These are reasoned recommendations, **not measured business advantages**. Neither variant is approved for real customer CRM data: SEC-001 is not implemented, and neither is production-ready.
+
 ## Two-variant comparison — current evidence
 
 | Dimension | Variant 1: FastAPI + Open WebUI | Variant 2: ChatGPT Skill + Python |
@@ -98,7 +126,7 @@ Variant 1 meets all seven documented portfolio MVP acceptance criteria. Its 11-t
 | Multi-user distribution/version consistency | Not a Variant 1 MVP acceptance gate | Comparison criterion; untested for Skill installation, sharing and centrally aligned versions |
 | CI / commercial security | CI deferred; SEC-001 not implemented | CI deferred; SEC-001 not implemented |
 
-**Interpretation:** The available evidence supports functional feasibility and reported deterministic-result parity on shared synthetic cases. It does **not** establish independent clean-environment audit parity, model-explanation faithfulness, guaranteed multi-user installation/version synchronization, measured setup/maintenance cost, or production safety. Sharing a similar Python rule engine compares integration/orchestration, not independent algorithmic accuracy. Further comparison and final portfolio acceptance should retain these limitations.
+**Interpretation:** The available evidence supports functional feasibility and reported deterministic-result parity on shared synthetic cases. It does **not** establish independent clean-environment audit parity, model-explanation faithfulness, universal multi-user installation or centrally enforced version synchronization, measured setup/maintenance cost, or production safety. Sharing a similar Python rule engine compares integration/orchestration, not independent algorithmic accuracy. The owner has additionally confirmed that a second ChatGPT user successfully ran the Skill and received matching results; this supports practical cross-user reuse, but does not establish centralized release/version governance. Further comparison and final portfolio acceptance should retain these limitations.
 
 Both variants intentionally exclude real customer data, complete freshness/close-date reconciliation, inference of missing associations from partial exports, production hardening, GitHub CI, and commercial rollout from their portfolio MVP scope. The missing-owner policy remains provisional. Proposed future detection → review → approve → notify → verify functionality in Variant 2 is **not implemented**. See [Variant 2 roadmap](https://github.com/fit2grow-DataNinja/s02-crm-data-quality-auditor-skill/blob/main/docs/future-improvements-and-commercial-readiness.md).
 

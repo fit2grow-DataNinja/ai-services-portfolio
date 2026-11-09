@@ -3,7 +3,7 @@
 
 I combine business analysis and consulting experience with hands-on analytics, data quality, and applied AI implementation. I help organizations improve measurement, reporting, and operational workflows by translating business needs into practical, testable solutions.
 
-**Budapest, Hungary** · [LinkedIn](ADD_LINKEDIN_URL) · [Email](mailto:balazs.bogda@fit2grow.io)
+**Budapest, Hungary** · [LinkedIn](https://www.linkedin.com/in/balazsbogda/)
 
 ## Profile
 
@@ -64,4 +64,4 @@ Across future solutions, I expect to retain selected architecture components and
 
 Repositories document project scope, implementation, available validation evidence, and known limitations. Implemented behavior, test results, user-reported outcomes, and planned work are identified separately. Portfolio prototypes are not presented as production deployments or commercially validated services.
 
-For my broader experience, see my [CV](ADD_CV_LINK) or connect with me on [LinkedIn](ADD_LINKEDIN_URL).
+Connect with me on [LinkedIn](https://www.linkedin.com/in/balazsbogda/).

@@ -15,6 +15,6 @@
 ## Ownership
 - **Portfolio repository:** this policy and the [service test layout template](../templates/service-test-layout.template.md).
 - **Service repositories:** runnable tests, fixtures, execution commands, results, and milestone-specific acceptance criteria.
-- **S02 example:** [adapter regression tests](https://github.com/bb-DataNinja/s02-crm-data-quality-auditor/blob/main/tests/test_openwebui_adapter.py) and [fixture policy](https://github.com/bb-DataNinja/s02-crm-data-quality-auditor/blob/main/tests/fixtures/README.md).
+- **S02 example:** [adapter regression tests](https://github.com/fit2grow-DataNinja/s02-crm-data-quality-auditor/blob/main/tests/test_openwebui_adapter.py) and [fixture policy](https://github.com/fit2grow-DataNinja/s02-crm-data-quality-auditor/blob/main/tests/fixtures/README.md).
 
 The portfolio repository is primarily documentation and governance; it does not require an empty executable `tests/` directory.

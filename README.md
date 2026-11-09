@@ -16,23 +16,32 @@ I have 6+ years of focused experience in data analytics, business intelligence, 
 - **Data quality and measurement:** SQL-based validation, ETL data checks, GA4, event specifications, measurement audits, and web and app tracking.
 - **Applied AI implementation:** Python, FastAPI, APIs, LLM integrations, and AI-assisted analytics and workflow prototypes.
 
-## Selected project work
+## About this portfolio repository
+
+This repository is the portfolio-level home for my business solutions. It lists the solutions and contains their use-case documents, portfolio architecture and governance, and documented improvement opportunities.
+
+As the portfolio develops, reusable core systems and solution components may also be maintained here when their reuse is justified. Individual service implementations and their technical documentation are maintained in separate repositories linked from the relevant solution and use-case pages. This keeps the business context and use cases together at portfolio level while allowing each implementation to be documented and maintained independently.
+
+## Portfolio solutions and use cases
 
 ### S02 — CRM Data Quality Auditor
 
 A completed, two-variant **synthetic-data portfolio MVP** exploring how deterministic CRM data checks can be paired with AI-assisted explanations.
 
-The project includes a Python/FastAPI service with an Open WebUI integration and a separate ChatGPT Skill implementation using deterministic Python execution. Both variants were completed for the defined synthetic-data scope. The shared synthetic case recorded 202 contacts, 121 deals, and 92 medium-severity missing-owner findings; those findings are review flags under a provisional rule, not confirmed business errors.
+The portfolio use case describes the business problem, both solution approaches, available evidence, trade-offs, and limitations. The separate implementation repositories contain the technical source, tests, and implementation documentation.
 
-- [Variant 1 — FastAPI and Open WebUI](https://github.com/fit2grow-DataNinja/s02-crm-data-quality-auditor)
-- [Variant 2 — ChatGPT Skill and Python](https://github.com/fit2grow-DataNinja/s02-crm-data-quality-auditor-skill)
-- [Portfolio case study and evidence](case-studies/S02-crm-data-quality-auditor.md)
+- [S02 portfolio use case and comparison](case-studies/S02-crm-data-quality-auditor.md)
+- [Portfolio service overview](services/S02.md)
+- [Variant 1 — FastAPI and Open WebUI implementation](https://github.com/fit2grow-DataNinja/s02-crm-data-quality-auditor)
+- [Variant 2 — ChatGPT Skill and Python implementation](https://github.com/fit2grow-DataNinja/s02-crm-data-quality-auditor-skill)
 
-**Scope and evidence:** The MVP was evaluated with synthetic data. Test and parity evidence is documented in the project records, with some execution and cross-user results reported by the project owner. Neither variant is production-ready, approved for customer CRM data, or commercially validated.
+Both variants were completed for the defined synthetic-data scope. The shared synthetic case recorded 202 contacts, 121 deals, and 92 medium-severity missing-owner findings; those findings are review flags under a provisional rule, not confirmed business errors. Test and parity evidence is documented in the project records, with some execution and cross-user results reported by the project owner. Neither variant is production-ready, approved for customer CRM data, or commercially validated.
 
 ### AI-assisted A/B testing analysis and reporting
 
 Originally developed an AI-supported approach for analyzing experimentation results and preparing structured reports, combining digital experimentation expertise with practical AI workflows. **Recreation is in progress**; this portfolio will be updated with the recreated project when it is ready to present.
+
+## Separate learning project
 
 ### RAG MVP
 
@@ -60,8 +69,6 @@ Selected clients: Columbus McKinnon EMEA · SolarKit Europe Ltd · BigFish Ltd
 
 This portfolio is evolving through documented projects and learning. Further improvement opportunities are identified and recorded for consideration as new needs arise; they are not claims of implemented capabilities or committed work.
 
-Across future solutions, I expect to retain selected architecture components and systems as a reusable core, while keeping other components specific to each project. The boundary will be guided by demonstrated reuse and project needs, with shared components introduced when justified.
+Across future solutions, selected architecture components and systems are intended to form a reusable core, while other components remain specific to each project. The boundary will be guided by demonstrated reuse and project needs, with shared components introduced when justified; this README does not imply that a shared core already exists.
 
 Repositories document project scope, implementation, available validation evidence, and known limitations. Implemented behavior, test results, user-reported outcomes, and planned work are identified separately. Portfolio prototypes are not presented as production deployments or commercially validated services.
-
-Connect with me on [LinkedIn](https://www.linkedin.com/in/balazsbogda/).

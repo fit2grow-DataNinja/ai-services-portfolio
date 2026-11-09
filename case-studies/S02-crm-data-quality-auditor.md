@@ -1,7 +1,7 @@
 # S02 — CRM Data Quality Auditor
 ## Two-variant portfolio case study: deterministic checks, AI-assisted explanation
 
-**Status:** Variant 1 synthetic-data portfolio MVP accepted (7/7 criteria); Variant 2 Skill/Python implementation and reported regression/parity evidence documented, with final comparison and review still open. Neither variant is production-ready · **November 2026**  
+**Status:** **S02 portfolio MVP complete and closed (9 November 2026): both variants accepted for the defined synthetic-data scope.** Variant 1 met 7/7 documented MVP criteria; Variant 2 was accepted on the recorded implementation, user-confirmed regression/parity/reuse evidence and documentation-access test. Neither variant is production-ready.  
 **Evidence:** [Variant 1 implementation](https://github.com/fit2grow-DataNinja/s02-crm-data-quality-auditor) · [Variant 1 validation](https://github.com/fit2grow-DataNinja/s02-crm-data-quality-auditor/blob/main/docs/validation.md) · [Variant 2 implementation](https://github.com/fit2grow-DataNinja/s02-crm-data-quality-auditor-skill) · [Variant 2 validation](https://github.com/fit2grow-DataNinja/s02-crm-data-quality-auditor-skill/blob/main/docs/validation.md)
 
 > **Scope:** Self-directed demonstration using synthetic CRM exports. No customer deployment, validated commercial impact or production-readiness claim.
@@ -55,7 +55,7 @@ The architectural distinction is central to this use case: **Python decides what
 | **Independent explanation verification** | **Not implemented:** no automated checker validates each model statement against the deterministic output. |
 | **Sensitive-data handling** | **Not implemented:** the planned SEC-001 outbound-data sensitivity and manual-approval gate is absent. **Synthetic data only.** |
 
-This distinction matters: **repeatable rule output does not automatically guarantee a faithful natural-language explanation**. It also creates a concrete comparison criterion for the future skill-based Variant 2: which audit and AI boundaries are enforced by executable code, and which depend on model instructions?
+This distinction matters: **repeatable rule output does not automatically guarantee a faithful natural-language explanation**. The two-variant comparison therefore distinguishes boundaries enforced by executable code from those dependent on model instructions.
 
 ## Demonstration and verification
 
@@ -114,6 +114,11 @@ The two approaches address the same business problem: identify reviewable CRM da
 
 **Decision guidance:** Prefer Variant 2 for lightweight ChatGPT-first, user-initiated auditing; prefer Variant 1 when central service operation and future system integration dominate. These are reasoned recommendations, **not measured business advantages**. Neither variant is approved for real customer CRM data: SEC-001 is not implemented, and neither is production-ready.
 
+## Portfolio MVP closure (2026-11-09)
+The S02 two-variant evaluation is **closed at the synthetic portfolio MVP level**. Variant 1's 7/7 acceptance and reported 11-test local pass remain the baseline. Variant 2 has committed deterministic Python/Skill implementation, a 17-case regression suite with owner-confirmed fresh-checkout execution, reported issue-level parity on the 202/121/92 synthetic case, and owner-confirmed successful reuse by a second ChatGPT user. The approved ChatGPT user guide was incorporated into the Skill package; the owner manually added it to the installed Skill and supplied a documentation-only response that correctly cited `user-guide.md`, listed required/optional CSV headers and reported no audit execution. The installed editor flattened the uploaded guide to the Skill root, so its `SKILL.md` reference was manually adjusted; the GitHub package retains `references/user-guide.md`.
+
+**Evidence boundary:** User confirmations and shared responses are not independently captured runtime transcripts. No centrally managed Skill update propagation, comprehensive AI-explanation fidelity verification, CI, SEC-001 enforcement, or production security has been demonstrated. Approach B GitHub-to-ChatGPT packaging/publishing is explicitly deferred beyond MVP. Closure is not commercial authorization.
+
 ## Two-variant comparison — current evidence
 
 | Dimension | Variant 1: FastAPI + Open WebUI | Variant 2: ChatGPT Skill + Python |
@@ -123,10 +128,10 @@ The two approaches address the same business problem: identify reviewable CRM da
 | Structured output | ZIP contains `summary.json`, `issues.csv`, `report.md` | Files `summary.json`, `issues.csv`, `report.md` written locally |
 | Regression tests | 11 passed, user-reported local run | 17-case suite; local pass reported and fresh-checkout execution user-confirmed |
 | Conversation path | Open WebUI Workspace Tool demonstrated | ChatGPT Skill audit exercises reported in two conversations |
-| Multi-user distribution/version consistency | Not a Variant 1 MVP acceptance gate | Comparison criterion; untested for Skill installation, sharing and centrally aligned versions |
+| Multi-user distribution/version consistency | Not a Variant 1 MVP acceptance gate | Second-user sharing and matching results owner-confirmed; centrally aligned versions and automated updates untested |
 | CI / commercial security | CI deferred; SEC-001 not implemented | CI deferred; SEC-001 not implemented |
 
-**Interpretation:** The available evidence supports functional feasibility and reported deterministic-result parity on shared synthetic cases. It does **not** establish independent clean-environment audit parity, model-explanation faithfulness, universal multi-user installation or centrally enforced version synchronization, measured setup/maintenance cost, or production safety. Sharing a similar Python rule engine compares integration/orchestration, not independent algorithmic accuracy. The owner has additionally confirmed that a second ChatGPT user successfully ran the Skill and received matching results; this supports practical cross-user reuse, but does not establish centralized release/version governance. Further comparison and final portfolio acceptance should retain these limitations.
+**Interpretation:** The available evidence supports functional feasibility and reported deterministic-result parity on shared synthetic cases. It does **not** establish independent clean-environment audit parity, model-explanation faithfulness, universal multi-user installation or centrally enforced version synchronization, measured setup/maintenance cost, or production safety. Sharing a similar Python rule engine compares integration/orchestration, not independent algorithmic accuracy. The owner has additionally confirmed that a second ChatGPT user successfully ran the Skill and received matching results; this supports practical cross-user reuse, but does not establish centralized release/version governance. Final portfolio acceptance retains these limitations; they are documented post-MVP questions, not unresolved MVP gates.
 
 Both variants intentionally exclude real customer data, complete freshness/close-date reconciliation, inference of missing associations from partial exports, production hardening, GitHub CI, and commercial rollout from their portfolio MVP scope. The missing-owner policy remains provisional. Proposed future detection → review → approve → notify → verify functionality in Variant 2 is **not implemented**. See [Variant 2 roadmap](https://github.com/fit2grow-DataNinja/s02-crm-data-quality-auditor-skill/blob/main/docs/future-improvements-and-commercial-readiness.md).
 

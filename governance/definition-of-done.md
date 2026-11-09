@@ -26,4 +26,4 @@ Apply these criteria to every meaningful service feature, fix, integration, or m
 See [Regression testing](../validation/regression-testing.md) and [Service test layout template](../templates/service-test-layout.template.md).
 
 ## Service-specific acceptance criteria
-Each service owns its concrete definition of done for current milestones. For S02, see [S02 definition of done](https://github.com/bb-DataNinja/s02-crm-data-quality-auditor/blob/main/docs/definition-of-done.md). Service-specific criteria take precedence for technical behavior while remaining subject to portfolio-wide governance and security requirements.
+Each service owns its concrete definition of done for current milestones. For S02, see [S02 definition of done](https://github.com/fit2grow-DataNinja/s02-crm-data-quality-auditor/blob/main/docs/definition-of-done.md). Service-specific criteria take precedence for technical behavior while remaining subject to portfolio-wide governance and security requirements.

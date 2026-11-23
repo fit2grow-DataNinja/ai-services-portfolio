@@ -24,17 +24,17 @@ As the portfolio develops, reusable core systems and solution components may als
 
 ## Documentation hierarchy
 
-This portfolio is the showcase and navigation layer for the AI solutions I build. The solution repositories are the technical homes for their implementations and detailed project evidence.
+This repository is the showcase and navigation layer for the AI solutions I build. The solution repositories are the technical homes for implementations and detailed project evidence.
 
-The supporting knowledge and method are organized separately:
+The supporting knowledge and method are maintained separately:
 
-1. **AI Governance Frameworks** — reusable, source-grounded governance knowledge, framework notes, and governance methods. See the [AI Governance Frameworks repository](https://github.com/fit2grow-DataNinja/ai-governance-frameworks).
-2. **Organizational Readiness** — a planned central repository for reusable ways to assess the capabilities an organization needs to support a specific AI use case.
-3. **AI Enablement Method** — a planned central repository describing how governance knowledge, organizational readiness, and use-case requirements are brought together into an assessment and action plan.
-4. **Applied use cases and implementations** — project-specific application of the method, with technical implementation, evidence, controls, limitations, and status documented in the relevant solution repositories. Portfolio case studies summarize the business context and link to the detailed project records.
-5. **AI Services Portfolio** — this repository presents the built solutions and provides cross-project context and navigation; it is not a second technical home for their implementations.
+1. **[AI Governance Frameworks](https://github.com/fit2grow-DataNinja/ai-governance-frameworks)** — reusable, source-grounded governance knowledge and methods.
+2. **[AI Organizational Readiness](https://github.com/fit2grow-DataNinja/ai-organizational-readiness)** — a separate repository for reusable assessment of organizational capabilities needed to support specific AI use cases.
+3. **[AI Enablement Method](https://github.com/fit2grow-DataNinja/ai-enablement-method)** — a separate repository for the method that brings governance, readiness, and use-case requirements together into an assessment and action plan.
+4. **Applied use cases and implementations** — project-specific application and technical evidence. Solution repositories hold implementation details, controls, tests, limitations, and status. Portfolio case studies summarize the business context and comparisons, linking to the detailed project records.
+5. **AI Services Portfolio** — this repository presents the built solutions and provides cross-project context and navigation; it is not a second technical home for implementations.
 
-The two planned repositories are not yet created. Until then, this README records the intended structure; it does not claim those materials or assessments are implemented.
+The readiness and enablement repositories have been created, but their methods and assessment materials are still being developed. Their existence does not imply that a validated readiness assessment or enablement method is complete.
 
 ## Portfolio solutions and use cases
 

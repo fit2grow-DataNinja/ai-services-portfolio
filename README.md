@@ -24,17 +24,9 @@ As the portfolio develops, reusable core systems and solution components may als
 
 ## Documentation hierarchy
 
-This repository is the showcase and navigation layer for the AI solutions I build. The solution repositories are the technical homes for implementations and detailed project evidence.
+The [AI Enablement Method repository map](https://github.com/fit2grow-DataNinja/ai-enablement-method/blob/main/REPOSITORY-MAP.md) is the authoritative guide to how the governance, readiness, method, project, and portfolio repositories connect.
 
-The supporting knowledge and method are maintained separately:
-
-1. **[AI Governance Frameworks](https://github.com/fit2grow-DataNinja/ai-governance-frameworks)** — reusable, source-grounded governance knowledge and methods.
-2. **[AI Organizational Readiness](https://github.com/fit2grow-DataNinja/ai-organizational-readiness)** — a separate repository for reusable assessment of organizational capabilities needed to support specific AI use cases.
-3. **[AI Enablement Method](https://github.com/fit2grow-DataNinja/ai-enablement-method)** — a separate repository for the method that brings governance, readiness, and use-case requirements together into an assessment and action plan.
-4. **Applied use cases and implementations** — project-specific application and technical evidence. Solution repositories hold implementation details, controls, tests, limitations, and status. Portfolio case studies summarize the business context and comparisons, linking to the detailed project records.
-5. **AI Services Portfolio** — this repository presents the built solutions and provides cross-project context and navigation; it is not a second technical home for implementations.
-
-The readiness and enablement repositories have been created, but their methods and assessment materials are still being developed. Their existence does not imply that a validated readiness assessment or enablement method is complete.
+In brief, **AI Governance Frameworks**, **AI Organizational Readiness**, and **specific use-case requirements** inform the AI Enablement Method. Applied solution repositories document implementation and project evidence; this portfolio showcases the built solutions and links to those details. The method and readiness materials are developing, and existing projects are not presented as having used the method unless they have a dated assessment.
 
 ## Portfolio solutions and use cases
 

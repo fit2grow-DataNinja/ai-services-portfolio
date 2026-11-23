@@ -6,6 +6,8 @@
 
 > **Scope:** Self-directed demonstration using synthetic CRM exports. No customer deployment, validated commercial impact or production-readiness claim.
 
+> **AI Enablement Method status:** This MVP predates the development of the method and has not been assessed under it. The existing case study and implementation repositories remain the evidence record. Any retrospective assessment should be dated and identify the method version used. See the [repository map](https://github.com/fit2grow-DataNinja/ai-enablement-method/blob/main/REPOSITORY-MAP.md).
+
 ## Business challenge
 
 Sales and operations teams depend on trustworthy CRM data. Missing deal owners, duplicate contact information, invalid values and inconsistent relationships can undermine pipeline reporting and create manual review work. The objective was to identify **specific, reviewable data-quality findings** and explain them in business language—without letting an AI model invent the underlying audit results.

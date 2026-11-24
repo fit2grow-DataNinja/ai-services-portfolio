@@ -28,6 +28,10 @@ The [AI Enablement Method repository map](https://github.com/fit2grow-DataNinja/
 
 In brief, **AI Governance Frameworks**, **AI Organizational Readiness**, and **specific use-case requirements** inform the AI Enablement Method. Applied solution repositories document implementation and project evidence; this portfolio showcases the built solutions and links to those details. The method and readiness materials are developing, and existing projects are not presented as having used the method unless they have a dated assessment.
 
+[![AI Enablement Documentation Model](https://raw.githubusercontent.com/fit2grow-DataNinja/ai-enablement-method/main/repository-map.svg)](https://github.com/fit2grow-DataNinja/ai-enablement-method/blob/main/REPOSITORY-MAP.md)
+
+*The flowchart is maintained in the AI Enablement Method repository; open the repository map for responsibilities, information flow, and feedback rules.*
+
 ## Portfolio solutions and use cases
 
 ### S02 — CRM Data Quality Auditor

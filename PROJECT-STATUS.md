@@ -1,6 +1,6 @@
 # Project status — AI Services Portfolio
 
-**Last updated:** 2026-11-09  
+**Last updated:** 2026-11-24  
 **Status:** S02's synthetic-data portfolio MVP and two-variant comparison are complete and closed. The portfolio is in public-readiness review.  
 **Purpose:** Portfolio-level handoff. Service implementation details remain in their respective repositories.
 
@@ -10,6 +10,7 @@
 - The portfolio comparison is complete; see the [S02 case study](case-studies/S02-crm-data-quality-auditor.md).
 - The [S02 service overview](services/S02.md) records current evidence and boundaries.
 - Portfolio architecture, governance, service use cases, and improvement opportunities are maintained in this repository; implementation code and detailed technical documentation live in the service repositories.
+- Added links in the S02 case study to the completed, bounded EU AI Act screening and the NIST AI RMF overview/record; detailed project assessments remain in the Variant 1 repository.
 
 ## Evidence and boundaries
 

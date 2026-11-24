@@ -32,6 +32,8 @@ In brief, **AI Governance Frameworks**, **AI Organizational Readiness**, and **s
 
 *The flowchart is maintained in the AI Enablement Method repository; open the repository map for responsibilities, information flow, and feedback rules.*
 
+This portfolio aims to show practical AI enablement informed by governance: each applied solution is presented with its business purpose, implementation evidence, relevant governance review, and limitations. S02 has retrospective EU AI Act and NIST AI RMF reviews, but predates the method and is not presented as a method-led assessment. The A/B testing recreation is in progress, and RAG remains a learning project.
+
 ## Portfolio solutions and use cases
 
 ### S02 — CRM Data Quality Auditor

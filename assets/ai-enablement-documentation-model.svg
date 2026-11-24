@@ -1,0 +1,70 @@
+<!-- Display copy for the AI Services Portfolio README. Canonical source: https://github.com/fit2grow-DataNinja/ai-enablement-method/blob/main/repository-map.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1100" viewBox="0 0 1600 1100">
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M1,1 L11,6 L1,11 Z" fill="#334155"/>
+    </marker>
+    <marker id="arrowRev" markerWidth="12" markerHeight="12" refX="2" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M11,1 L1,6 L11,11 Z" fill="#334155"/>
+    </marker>
+    <style>
+      .title { font: 700 32px Arial, sans-serif; fill: #0f172a; }
+      .subtitle { font: 400 18px Arial, sans-serif; fill: #475569; }
+      .node-title { font: 700 21px Arial, sans-serif; fill: #0f172a; }
+      .node-sub { font: 400 16px Arial, sans-serif; fill: #475569; }
+      .flow-label { font: 600 15px Arial, sans-serif; fill: #475569; }
+      .input { fill: #f8fafc; stroke: #64748b; stroke-width: 2.5; }
+      .method { fill: #eaf2ff; stroke: #2563eb; stroke-width: 3; }
+      .applied { fill: #f0fdf4; stroke: #16a34a; stroke-width: 2.5; }
+      .portfolio { fill: #fff7ed; stroke: #ea580c; stroke-width: 2.5; }
+      .link { fill: none; stroke: #334155; stroke-width: 3; marker-end: url(#arrow); }
+      .feedback { fill: none; stroke: #334155; stroke-width: 3; }
+    </style>
+  </defs>
+  <rect width="1600" height="1100" fill="#ffffff"/>
+  <text x="800" y="43" text-anchor="middle" class="title">AI Enablement Documentation Model</text>
+  <text x="800" y="70" text-anchor="middle" class="subtitle">Three distinct inputs inform one method; applied work tests and refines it.</text>
+
+  <!-- Three inputs, aligned across the top -->
+  <rect x="65" y="100" width="420" height="140" rx="22" class="input"/>
+  <text x="275" y="155" text-anchor="middle" class="node-title">AI Organizational</text>
+  <text x="275" y="183" text-anchor="middle" class="node-title">Readiness</text>
+  <text x="275" y="214" text-anchor="middle" class="node-sub">Organizational capabilities</text>
+
+  <rect x="590" y="100" width="420" height="140" rx="22" class="input"/>
+  <text x="800" y="163" text-anchor="middle" class="node-title">AI Governance Frameworks</text>
+  <text x="800" y="199" text-anchor="middle" class="node-sub">Frameworks, obligations, governance practices</text>
+
+  <rect x="1115" y="100" width="420" height="140" rx="22" class="input"/>
+  <text x="1325" y="155" text-anchor="middle" class="node-title">Specific Use-Case</text>
+  <text x="1325" y="183" text-anchor="middle" class="node-title">Requirements</text>
+  <text x="1325" y="214" text-anchor="middle" class="node-sub">Purpose, users, data, context, impact</text>
+
+  <!-- Inputs converge into the centered method -->
+  <path d="M275 240 V292 H625 V350" class="link"/>
+  <path d="M800 240 V350" class="link"/>
+  <path d="M1325 240 V292 H975 V350" class="link"/>
+
+  <!-- Method -->
+  <rect x="480" y="350" width="640" height="140" rx="26" class="method"/>
+  <text x="800" y="408" text-anchor="middle" class="node-title">AI Enablement Method</text>
+  <text x="800" y="442" text-anchor="middle" class="node-sub">Combines inputs into a use-case assessment, gap analysis, and action plan</text>
+
+  <!-- Bidirectional method/application relationship -->
+  <path d="M770 490 V640" class="link"/>
+  <path d="M830 640 V490" class="link"/>
+  <text x="700" y="565" text-anchor="middle" class="flow-label">guidance</text>
+  <text x="900" y="565" text-anchor="middle" class="flow-label">lessons</text>
+
+  <!-- Applied solutions -->
+  <rect x="480" y="640" width="640" height="140" rx="26" class="applied"/>
+  <text x="800" y="697" text-anchor="middle" class="node-title">Applied Solutions Repositories</text>
+  <text x="800" y="732" text-anchor="middle" class="node-sub">Use-case-specific implementation, assessments, controls, and evidence</text>
+  <text x="800" y="756" text-anchor="middle" class="node-sub">S02 (MVP) · RAG (in progress) · A/B (recreating)</text>
+
+  <!-- Portfolio -->
+  <path d="M800 780 V900" class="link"/>
+  <rect x="480" y="900" width="640" height="130" rx="26" class="portfolio"/>
+  <text x="800" y="955" text-anchor="middle" class="node-title">AI Services Portfolio</text>
+  <text x="800" y="990" text-anchor="middle" class="node-sub">Showcases the built solutions and links to their project repositories</text>
+</svg>

@@ -28,9 +28,9 @@ The [AI Enablement Method repository map](https://github.com/fit2grow-DataNinja/
 
 In brief, **AI Governance Frameworks**, **AI Organizational Readiness**, and **specific use-case requirements** inform the AI Enablement Method. Applied solution repositories document implementation and project evidence; this portfolio showcases the built solutions and links to those details. The method and readiness materials are developing, and existing projects are not presented as having used the method unless they have a dated assessment.
 
-[![AI Enablement Documentation Model](https://raw.githubusercontent.com/fit2grow-DataNinja/ai-enablement-method/main/repository-map.svg)](https://github.com/fit2grow-DataNinja/ai-enablement-method/blob/main/REPOSITORY-MAP.md)
+[![AI Enablement Documentation Model](assets/ai-enablement-documentation-model.svg)](https://github.com/fit2grow-DataNinja/ai-enablement-method/blob/main/REPOSITORY-MAP.md)
 
-*The flowchart is maintained in the AI Enablement Method repository; open the repository map for responsibilities, information flow, and feedback rules.*
+*This inline display copy follows the canonical flowchart in the AI Enablement Method repository. Open the repository map for responsibilities, information flow, and feedback rules.*
 
 This portfolio aims to show practical AI enablement informed by governance: each applied solution is presented with its business purpose, implementation evidence, relevant governance review, and limitations. S02 has retrospective EU AI Act and NIST AI RMF reviews, but predates the method and is not presented as a method-led assessment. The A/B testing recreation is in progress, and RAG remains a learning project.
 

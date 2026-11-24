@@ -8,6 +8,15 @@
 
 > **AI Enablement Method status:** This MVP predates the development of the method and has not been assessed under it. The existing case study and implementation repositories remain the evidence record. Any retrospective assessment should be dated and identify the method version used. See the [repository map](https://github.com/fit2grow-DataNinja/ai-enablement-method/blob/main/REPOSITORY-MAP.md).
 
+## Governance evidence
+
+Variant 1 also has bounded retrospective portfolio reviews under the EU AI Act and NIST AI RMF. These were completed after the MVP and were **not** performed under the AI Enablement Method; they do not establish organizational compliance or control effectiveness.
+
+- **EU AI Act:** the preliminary screen found no Article 5 or Article 6 / Annex I or III match for the documented purpose. Article 50(1) and (2), provider/system-boundary facts, and other context-dependent questions remain for review. Start with the [business-facing overview and status](https://github.com/fit2grow-DataNinja/s02-crm-data-quality-auditor/blob/main/docs/eu-ai-act-evaluation-overview-status.md).
+- **NIST AI RMF 1.0:** all 72 Core subcategories have a disposition: 6 Main focus, 8 Sub-focus, 41 not selected for the MVP with rationale, and 17 unable to assess because evidence was unavailable. NIST AI 600-1 is partial input for the explanation component. Start with the [business-facing overview and status](https://github.com/fit2grow-DataNinja/s02-crm-data-quality-auditor/blob/main/docs/nist-ai-rmf-evaluation-overview-status.md).
+
+The S02 repository holds the screening/project records and detailed rationale. The NIST Target Profile is portfolio-proposed; no company representatives or organizational risk owner participated.
+
 ## Business challenge
 
 Sales and operations teams depend on trustworthy CRM data. Missing deal owners, duplicate contact information, invalid values and inconsistent relationships can undermine pipeline reporting and create manual review work. The objective was to identify **specific, reviewable data-quality findings** and explain them in business language—without letting an AI model invent the underlying audit results.
